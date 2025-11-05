@@ -24,7 +24,7 @@ let app = express();
 
 app.use('/',(req, res, next) =>{
     res.send("hello mai nahi jane dunga")
-  next();
+  // next();
 });
 
 app.get("/",  (req, res) =>{
