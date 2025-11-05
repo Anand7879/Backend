@@ -23,7 +23,7 @@ let express = require("express");
 let app = express();
 
 app.use('/',(req, res, next) =>{
-    // res.send("hello mai nahi jane dunga")
+    res.send("hello mai nahi jane dunga")
   next();
 });
 
