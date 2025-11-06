@@ -9,16 +9,28 @@ let app = express();
   
 // });
 
-let arr = ['cat','dog','cat','dog']
-app.get("/:ani",  (req, res) =>{
-    let {ani} = req.params
-    let data = arr.filter((a)=>{
-        return a==ani
-    })
-    res.send(data)
-//   res.send("Hello I am From Backend");
+// let arr = ['cat','dog','cat','dog']
+// app.get("/:ani",  (req, res) =>{
+//     let {ani} = req.params
+//     let data = arr.filter((a)=>{
+//         return a==ani
+//     })
+//     res.send(data)
+// //   res.send("Hello I am From Backend");
   
-});
+// });
+
+let arr = ['anand','shivansh','aditya patel','om patel']
+app.get("/:search",  (req, res) =>{
+        let {firstName,lastName} = req.query
+        console.log(`firstName: ${firstName} lastName: ${lastName}`);
+        
+        res.send(`firstName: ${firstName} lastName: ${lastName}`)
+        
+    })
+    
+
+
 
 
 app.listen(3000, ()=>{
