@@ -1,5 +1,7 @@
 let express = require("express");
 let app = express();
+app.use(express.json())
+
 
 
 // app.get("/:id",  (req, res) =>{
@@ -20,18 +22,28 @@ let app = express();
   
 // });
 
-let arr = ['anand','shivansh','aditya patel','om patel']
-app.get("/:search",  (req, res) =>{
-        let {firstName,lastName} = req.query
-        console.log(`firstName: ${firstName} lastName: ${lastName}`);
+// let arr = ['anand','shivansh','aditya patel','om patel']
+
+// app.use('/',(req, res, next) =>{
+//     // res.send("hello mai nahi jane dunga")
+//   next();
+// });
+
+// app.get("/:search",  (req, res) =>{
+//         let {firstName,lastName} = req.query
+//         console.log(`firstName: ${firstName} lastName: ${lastName}`);
+
+//         res.send(`firstName: ${firstName} lastName: ${lastName}`)
         
-        res.send(`firstName: ${firstName} lastName: ${lastName}`)
-        
-    })
+//     })
     
 
 
-
+app.post('/data',(req,res)=>{
+    let val = req.body
+    console.log(val);
+    
+})
 
 app.listen(3000, ()=>{
   console.log("Server is running on port 3000");
