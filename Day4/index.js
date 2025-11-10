@@ -21,6 +21,7 @@ app.get('/',(req,res)=>{
 
  })
 
+ // create account
   app.post('/create',  async(req,res)=>{
           let {userName,email,passWord}=   req.body
       console.log(userName,email ,"heheh");
@@ -46,6 +47,7 @@ app.get('/',(req,res)=>{
  })
 
 
+ //login
  app.post("/login",async(req,res)=>{
     let {email,passWord}=   req.body
 
