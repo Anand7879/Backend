@@ -1,7 +1,9 @@
 let express = require('express')
 let app = express()
+let cors = require('cors')
 let sendOtp = require('./twillioService')
 app.use(express.json()) 
+app.use(cors())
 
 app.post('/send-otp', async (req, res) => {
     const { phoneNumber } = req.body;
