@@ -1,0 +1,25 @@
+let mongoose= require('mongoose')
+
+let userSchema= mongoose.Schema({
+    userName:{
+        type:String
+
+    },
+    email:{
+        type:String
+    },
+    passWord:{
+        type:String
+    },
+    role:{
+        type:String,
+        enum:['user','admin','instructor'],
+        default:'user'
+    }
+    
+})
+
+
+   let User=   mongoose.model("user",userSchema)
+
+   module.exports=User
