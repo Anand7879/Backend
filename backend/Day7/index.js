@@ -5,14 +5,16 @@ let bcrypt=    require('bcrypt')
 let jwt=    require('jsonwebtoken')
 const crypto = require('crypto');
 let {sendEmail} = require('./sendEmail')
-
+const cors = require('cors');
 mongoose.connect("mongodb://127.0.0.1:27017/5thSem").
-  then(()=>{
-   console.log("db....");
-  })
-  let app=     express()
-  app.use(express.json())
+then(()=>{
+  console.log("db....");
+})
+let app=     express()
+app.use(express.json())
+app.use(cors());
 
+app.use(express.json());
 
 // Create account
 app.post('/create', async (req, res) => {
@@ -128,7 +130,7 @@ app.post('/forgot-password',async(req,res)=>{
       `Click the link below to reset your password:\n\n${resetUrl}`
     );
      res.status(200).send('Password reset email sent');
-     
+
     } catch (error) {
     res.status(500).send('Error sending password reset email: ' + error.message);
     }

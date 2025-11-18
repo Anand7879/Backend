@@ -1,5 +1,6 @@
 import React from 'react'
-import RBACapp from './RBACapp'
+// import RBACapp from './RBACapp'
+import ResetPassWord from './ResetPassWord'
 // import SignUp from './SignUp'
 // import Login from './Login'
 // import { Route, Routes } from 'react-router-dom'
@@ -9,7 +10,8 @@ import RBACapp from './RBACapp'
 const App = () => {
   return (
     <div>
-      <RBACapp/>
+      {/* <RBACapp/> */}
+      <ResetPassWord/>
       {/* <Routes> */}
         {/* <Route   path='/' element={<SignUp/>}/>
         <Route   path='/login' element={<Login/>}/> */}
