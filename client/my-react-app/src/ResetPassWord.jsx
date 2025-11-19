@@ -45,7 +45,7 @@ const ResetPassword = () => {
         setInput({ password: "", confirmPassword: "" });
         // Redirect to login after 1 second
         setTimeout(() => {
-          navigate('/login');
+          navigate('/');
         }, 1000);
       }
       
@@ -89,7 +89,7 @@ const ResetPassword = () => {
         <br />
         <button type="submit">Reset Password</button>
         <br />
-        <p><Link to="/login">Back to Login</Link></p>
+        <p><Link to="/">Back to Login</Link></p>
       </form>
     </div>
   );
