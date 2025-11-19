@@ -123,7 +123,8 @@ app.post('/forgot-password',async(req,res)=>{
     await user.save();
 
 
-    const resetUrl = `${req.protocol}://${req.get('host')}/reset-password/${resetToken}`;
+    // const resetUrl = `${req.protocol}://${req.get('host')}/reset-password/${resetToken}`;
+    resetUrl = `http://localhost:5173/reset/${resetToken}`;
     await sendEmail(
       user.email,
       'Password Reset Request',
@@ -140,7 +141,7 @@ app.post('/forgot-password',async(req,res)=>{
 // Reset Password
 app.post('/reset-password/:token', async (req, res) => {
   const { token } = req.params;
-  const { newPassword } = req.body;
+  const { password } = req.body;
 
   try {
     const user = await User.findOne({
@@ -153,7 +154,7 @@ app.post('/reset-password/:token', async (req, res) => {
     }
 
     // Hash the new password
-    const hashedPassword = await bcrypt.hash(newPassword, 10);
+    const hashedPassword = await bcrypt.hash(password, 10);
     user.passWord = hashedPassword;
     user.resetToken = undefined;
     user.resetTokenExpiry = undefined;
